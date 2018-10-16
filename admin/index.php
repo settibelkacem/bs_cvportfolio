@@ -64,7 +64,7 @@ if(isset($_GET['quitter'])){//on récupère le terme quiiter en GET
   <div class="card-body">
     <h4 class="card-title"><?php echo $ligne_utilisateur['prenom'].' '.$ligne_utilisateur['nom']; ?></h4>
     <address class="card-text">
-	  <?php echo $ligne_utilisateur['adresse'].'<br>'.$ligne_utilisateur['code_postal'].' '.$ligne_utilisateur['ville'].'<br><i>'.$ligne_utilisateur['email'].'</i><br>'.$ligne_utilisateur['telephone']; ?>
+	  <?php echo $ligne_utilisateur['adresse'].'<br>'.$ligne_utilisateur['code_postal'].' '.$ligne_utilisateur['ville'].'<br><i>'.$ligne_utilisateur['email'].'</i><br>'.$ligne_utilisateur['tel']; ?>
 	  </address>
     <a href="#" class="btn btn-primary">Mon profil</a>
   </div>

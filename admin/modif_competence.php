@@ -1,4 +1,4 @@
-<?php require 'connexion.php'; 
+<?php require 'inc/connexion.php'; 
 
 //gestion mise à jour d'une information
 if(isset($_POST['competence'])){
