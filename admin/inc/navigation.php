@@ -22,6 +22,10 @@
               <a class="dropdown-item" href="competences.php"><i class="fas fa-book-reader"></i> - Compétences</a>
               <a class="dropdown-item" href="loisirs.php"><i class="fas fa-bicycle"></i> - Loisirs</a>
               <a class="dropdown-item" href="formations.php"><i class="fas fa-school"></i> - Formations</a>
+              <a class="dropdown-item" href="experiences.php"><i class="fas fa-school"></i> - Experiences</a>
+              <a class="dropdown-item" href="reseaux.php"><i class="fas fa-school"></i> - Reseaux</a>
+              <a class="dropdown-item" href="messages.php"><i class="fas fa-school"></i> - Messages</a>
+              <a class="dropdown-item" href="realisations.php"><i class="fas fa-school"></i> - Réalisation</a>
             </div>
           </li>
           <li class="nav-item">

@@ -49,32 +49,32 @@ if(isset($_GET['quitter'])){//on récupère le terme quiiter en GET
   <body>
 	  <div class="container">
 		   <?php require 'inc/navigation.php'; ?>
-  <div class="row">
-	  <div class="jumbotron">
-  <h1 class="display-4"><i class="fas fa-briefcase"></i> - Admin :  <?php echo $ligne_utilisateur['pseudo']; ?></h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr class="my-4">
-  <a class="btn btn-primary btn-lg" href="#" role="button">VOIR</a>
-</div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12 col-md-12 col-xl-8 fondbleu">
-     <div class="card" style="width:400px">
-  <img class="card-img-top" src="<?php echo $ligne_utilisateur['avatar']; ?>" alt="Mettre image">
-  <div class="card-body">
-    <h4 class="card-title"><?php echo $ligne_utilisateur['prenom'].' '.$ligne_utilisateur['nom']; ?></h4>
-    <address class="card-text">
-	  <?php echo $ligne_utilisateur['adresse'].'<br>'.$ligne_utilisateur['code_postal'].' '.$ligne_utilisateur['ville'].'<br><i>'.$ligne_utilisateur['email'].'</i><br>'.$ligne_utilisateur['telephone']; ?>
-	  </address>
-    <a href="#" class="btn btn-primary">Mon profil</a>
-  </div>
-</div>
+      <div class="row">
+	      <div class="jumbotron">
+          <h1 class="display-4"><i class="fas fa-briefcase"></i> - Admin :  <?php echo $ligne_utilisateur['pseudo']; ?></h1>
+          <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+          <hr class="my-4">
+          <a class="btn btn-primary btn-lg" href="#" role="button">VOIR</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-xl-8 fondbleu">
+          <div class="card" style="width:400px">
+            <img class="card-img-top" src="<?php echo $ligne_utilisateur['avatar']; ?>" alt="Mettre image">
+            <div class="card-body">
+              <h4 class="card-title"><?php echo $ligne_utilisateur['prenom'].' '.$ligne_utilisateur['nom']; ?></h4>
+                <address class="card-text">
+	                <?php echo $ligne_utilisateur['adresse'].'<br>'.$ligne_utilisateur['code_postal'].' '.$ligne_utilisateur['ville'].'<br><i>'.$ligne_utilisateur['email'].'</i><br>'.$ligne_utilisateur['tel']; ?>
+	              </address>
+                <a href="#" class="btn btn-primary">Mon profil</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xl-4 rose">
+        2
+        </div>
+      </div>
     </div>
-    <div class="col-sm-12 col-md-12 col-xl-4 rose">
-     2
-    </div>
-  </div>
-</div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

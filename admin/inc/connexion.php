@@ -1,7 +1,7 @@
 <?php 
 // fichier de connexion à la BDD
 $host='localhost';//le chemin vers le serveur de données
-$database='pantinportfolio';//le nom de la base de données
+$database='sb_cvportfolio';//le nom de la base de données
 $user='root';//le nom d'utilisateur pour se connecter
 $psw='';// mot de passe de l'utilisateur local (sur PC)
 // $psw='root'; // mot de passe local (sur MAC)
