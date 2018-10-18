@@ -148,17 +148,12 @@
     </div>
   <div class="form-group">
     <label for="description_real">Description VOIR</label>
-    <textarea type="text" class="form-control" name="description_real" id="editor">text</textarea>
-	 <script>
-			ClassicEditor
-				.create( document.querySelector( '#editor' ) )
-				.then( editor => {
-					console.log( editor );
-				} )
-				.catch( error => {
-					console.error( error );
-				} );
-		</script>
+    <textarea type="text" class="form-control" name="description_real" id="description_real">text</textarea>
+    <script>
+      // Replace the <textarea id="editor1"> with a CKEditor
+      // instance, using default configuration.
+      CKEDITOR.replace( 'description_real' );
+    </script>
   </div>
   
  

@@ -46,7 +46,11 @@
         </div>
         <div class="form-group">
             <label for="description_form">Description</label>
-            <textarea type="text" class="form-control" name="description_form" value="<?php echo $ligne_formation['description_form']; ?>">text</textarea>
+            <textarea type="text" class="form-control" name="description_form"  id="description_form" value="<?php echo $ligne_formation['description_form']; ?>">text</textarea>
+            <script>
+            // Replace the <textarea id="description_form"> avec CKEditor
+                CKEDITOR.replace( 'description_form' );
+            </script>
         <div class="form-group">
         <input type="hidden" name="id_formation" class="form-control" value="<?php echo $ligne_formation['id_formation']; ?>">
             <button type="submit">MAJ</button>

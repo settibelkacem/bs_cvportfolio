@@ -118,7 +118,7 @@ if(isset($_GET['id_competence'])) {// on récupère ce que je supprime dans l'ur
                             <caption>La liste des compétences : <?php echo $nbr_competences; ?></caption>
                             <thead>
                                 <tr>
-                                    <th><a href="competences.php?colonne=competences&ordre=desc"><img src="https://png.icons8.com/material-two-tone/50/000000/sort-down.png">/a>Compétences  - <a href="competences.php?colonne=competences&ordre=asc"><img src="https://png.icons8.com/material-two-tone/50/000000/sort-up.png"></a></th>
+                                    <th><a href="competences.php?colonne=competences&ordre=desc"><img src="https://png.icons8.com/material-two-tone/50/000000/sort-down.png"></a>Compétences  - <a href="competences.php?colonne=competences&ordre=asc"><img src="https://png.icons8.com/material-two-tone/50/000000/sort-up.png"></a></th>
                                     <th>Niveau</th>
                                     <th>Catégorie</th>
                                     <th>Modification</th>

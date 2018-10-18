@@ -8,5 +8,5 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 <!--	mes styles-->
 <link href="css/admin.css" rel="stylesheet" type="text/css">
-<!--ck editor 5-->
-<script src="https://cdn.ckeditor.com/ckeditor5/11.1.0/classic/ckeditor.js"></script>
+<!--ck editor 4-->
+<script src="ckeditor/ckeditor.js"></script>
