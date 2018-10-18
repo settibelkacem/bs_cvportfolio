@@ -84,8 +84,8 @@ if(isset($_GET['id_competence'])) {// on récupère ce que je supprime dans l'ur
 
         <!-- Bootstrap CSS en CDN-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
-        <!-- icons8 -->
-        <a href="https://icons8.com">Icon pack by Icons8</a>
+       
+        
         <?php
             //requête pour une seule info
             $sql = $pdoCV->query(" SELECT * FROM t_utilisateurs ");
@@ -106,17 +106,17 @@ if(isset($_GET['id_competence'])) {// on récupère ce que je supprime dans l'ur
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-12 col-xl-8 fondbleu">
+                <div class="col-sm-12 col-md-12 col-xl-8 fondbleu">
                     <div class="">
                         <?php 
                         //requête pour compter et chercher plusieurs enregistrements on ne peut compter que si on a un prépare
-                        $sql = $pdoCV->prepare(" SELECT * FROM t_competences $ordre ");
+                        $sql = $pdoCV->prepare(" SELECT * FROM t_competences $ordre");
                         $sql->execute();
                         $nbr_competences = $sql->rowCount();
                         ?>
-                        <table border="1">
+                        <table class="table table-bordered">
                             <caption>La liste des compétences : <?php echo $nbr_competences; ?></caption>
-                            <thead>
+                            <thead class="thead-dark">
                                 <tr>
                                     <th><a href="competences.php?colonne=competences&ordre=desc"><img src="https://png.icons8.com/material-two-tone/50/000000/sort-down.png"></a>Compétences  - <a href="competences.php?colonne=competences&ordre=asc"><img src="https://png.icons8.com/material-two-tone/50/000000/sort-up.png"></a></th>
                                     <th>Niveau</th>
@@ -125,7 +125,7 @@ if(isset($_GET['id_competence'])) {// on récupère ce que je supprime dans l'ur
                                     <th>Suppression</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="thead-light">
                                 <?php while($ligne_competence=$sql->fetch()) 
                                     {
                                 ?>
@@ -146,25 +146,25 @@ if(isset($_GET['id_competence'])) {// on récupère ce que je supprime dans l'ur
                 <div class="col-sm-12 col-xl-4 rose">
                 <!-- insertion d'une nouvelle compétence formulaire -->
                     <form action="competences.php" method="post">
-                        <div class="">
+                        <div class="form-group">
                             <label for="competence">Compétence</label>
-                            <input type="text" backname="competence" placeholder="nouvelle compétence" required>
+                            <input type="text" name="competence" class="form-control" placeholder="nouvelle compétence" required>
                         </div>
-                        <div class="">
+                        <div class="form-group">
                             <label for="niveau">Niveau</label>
-                            <input type="text" name="niveau" placeholder="niveau en chiffre" required>
+                            <input type="text" name="niveau" class="form-control" placeholder="niveau en chiffre" required>
                         </div>
-                        <div class="">
+                        <div class="form-group">
                             <label for="categorie">Catégorie</label>
-                            <select name="categorie">
+                            <select name="categorie" class="form-control">
                                     <option value="Back">Back</option>
                                     <option value="CMS">CMS</option>
                                     <option value="Frameworks">Frameworks</option>
                                     <option value="Front">Front</option>
                             </select>
                         </div>
-                        <div class="">
-                            <button type="submit">Insérer une compétence</button>
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit">Insérer une compétence</button>
                         </div>
                     </form>
                 </div><!--fin col 2-->

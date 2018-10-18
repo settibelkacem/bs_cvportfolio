@@ -1,5 +1,50 @@
 <?php require 'inc/connexion.php'; 
 
+session_start();// à mettre dans toutes les pages de l'admin 
+
+if(isset($_SESSION['connexion_admin'])) {// si on est connecté on récupère les variables de session
+
+    $id_utilisateur=$_SESSION['id_utilisateur'];
+    $email=$_SESSION['email'];
+    $mdp=$_SESSION['mdp'];
+    $nom=$_SESSION['nom'];
+
+    // echo $id_utilisateur;
+}else{// si on n'est pas connecté on ne peut pas accéder à l'admin
+  header('location:../authentification.php');
+}
+//pour vider les variables de session on destroy !
+if(isset($_GET['quitter'])){//on récupère le terme quiiter en GET
+
+  $_SESSION['connexion_admin']='';
+  $_SESSION['id_utilisateur']='';
+  $_SESSION['email']='';
+  $_SESSION['nom']='';
+  $_SESSION['mdp']='';
+
+    unset($_SESSION['connexion_admin']);//unset détruit la variable connexion_admin
+    session_destroy();//on détruit la session
+
+    header('location:../authentification.php');
+}
+
+//pour le tri des colonnes 
+$ordre = ''; // on vide la variable 
+
+if(isset($_GET['ordre']) && isset($_GET['colonne'])){
+	
+	if($_GET['colonne'] == 'experiences'){
+		$ordre = ' ORDER BY experience';
+	}
+	
+	if($_GET['ordre'] == 'asc'){
+		$ordre.= ' ASC';
+	}
+	elseif($_GET['ordre'] == 'desc'){
+		$ordre.= ' DESC';
+	}
+}
+
 // insertion d'un élément dans la base 
 if (isset($_POST['titre_exp'])) {//si on a reçu une nouvelle experience
 
@@ -40,8 +85,8 @@ if (isset($_GET['id_experience'])) {// on récupère ce que je supprime dans l'u
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
         <?php
             //requête pour une seule info
-        $sql = $pdoCV->query(" SELECT * FROM t_utilisateurs ");
-        $ligne_utilisateur = $sql->fetch();
+            $sql = $pdoCV->query(" SELECT * FROM t_utilisateurs ");
+            $ligne_utilisateur = $sql->fetch();
         ?>
         <title>Admin :  <?php echo $ligne_utilisateur['pseudo']; ?></title>
         <?php require 'inc/head.php'; ?>
@@ -59,9 +104,10 @@ if (isset($_GET['id_experience'])) {// on récupère ce que je supprime dans l'u
             </div>
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-xl-5 fondbleu">
+
                     <?php 
                     //requête pour compter et chercher plusieurs enregistrements on ne peut compter que si on a un prépare
-                    $sql = $pdoCV->prepare(" SELECT * FROM t_experiences ");
+                    $sql = $pdoCV->prepare(" SELECT * FROM t_experiences $ordre ");
                     $sql->execute();
                     $nbr_experiences = $sql->rowCount();
                     ?>
@@ -88,7 +134,7 @@ if (isset($_GET['id_experience'])) {// on récupère ce que je supprime dans l'u
                     <form action="formations.php" method="post">
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="titre_exp>Titre experience</label>
+                                <label for="titre_exp">Titre experience</label>
                                 <input type="titre_exp" class="form-control" name="titre_exp" placeholder="titre">
                             </div>
                             <div class="form-group col-md-6">
