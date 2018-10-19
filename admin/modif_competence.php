@@ -1,4 +1,5 @@
 <?php require 'inc/connexion.php'; 
+require 'inc/head.php';
 
 //gestion mise à jour d'une information
 if(isset($_POST['competence'])){
@@ -28,47 +29,59 @@ $ligne_competence = $sql->fetch();//va chercher ! va !
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Admin : mise à jour loisir</title>
     </head>
-    <body>
-        <h1>Mise à jour d'une compétence</h1>
-        <!-- mise à jour formulaire -->
-        <form action="modif_competence.php" method="post">
-            <input type="hidden" name="id_competence" value="<?php echo $ligne_competence['id_competence']; ?>">
-            <div class="">
-                    <label for="competence">Competence</label>
-                    <input type="text" name="competence" value="<?php echo $ligne_competence['competence']; ?>" required>
+    <body class="text-center">
+        <div class="container">
+            <div class="jumbotron">
+                <div class="container">
+                    <h1 class="display-4">Mise à jour d'une compétence</h1>
+                    <p class="lead">Mise à jour de mon CV.</p>
+                </div>
             </div>
-            <div class="">
-                    <label for="niveau">Niveau</label>
-                    <input type="text" name="niveau" value="<?php echo $ligne_competence['niveau']; ?>" required>
+           
+            <!-- mise à jour formulaire -->
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <form action="modif_competence.php" method="post">
+                        <input type="hidden" name="id_competence" value="<?php echo $ligne_competence['id_competence']; ?>">
+                        <div class="form-group">
+                                <label for="competence">Competence</label>
+                                <input type="text" name="competence"class="form-control"  value="<?php echo $ligne_competence['competence']; ?>" required>
+                        </div>
+                        <div class="form-group">
+                                <label for="niveau">Niveau</label>
+                                <input type="text" name="niveau" class="form-control" value="<?php echo $ligne_competence['niveau']; ?>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="categorie">Catégorie <?php echo $ligne_competence['categorie']; ?></label>
+                            <select name="categorie" class="form-control">
+                                <option value="Back" <?php // pour ajouter selected="selected" à la balise option si c'est la cat. de la compétence
+                                    if (!(strcmp("Back", $ligne_competence['categorie']))) {//strcmp compare deux chaînes de caractères
+                                        echo "selected=\"selected\"";
+                                    }
+                                ?>>Back</option>
+                                <option value="CMS" <?php
+                                    if (!(strcmp("CMS", $ligne_competence['categorie']))) {
+                                        echo "selected=\"selected\"";   
+                                    }
+                                ?>>CMS</option>
+                                <option value="Frameworks" <?php
+                                    if (!(strcmp("Frameworks", $ligne_competence['categorie']))) {
+                                        echo "selected=\"selected\"";
+                                    }
+                                ?>>Frameworks</option>
+                                <option value="Front" <?php
+                                    if (!(strcmp("Front", $ligne_competence['categorie']))) {
+                                        echo "selected=\"selected\"";
+                                    }
+                                ?>>Front</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="form-control btn-primary">MAJ</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="">
-                <label for="categorie">Catégorie /// <?php echo $ligne_competence['categorie']; ?></label>
-                <select name="categorie">
-                    <option value="Back" <?php // pour ajouter selected="selected" à la balise option si c'est la cat. de la compétence
-                        if (!(strcmp("Back", $ligne_competence['categorie']))) {//strcmp compare deux chaînes de caractères
-                            echo "selected=\"selected\"";
-                        }
-                    ?>>Back</option>
-                    <option value="CMS" <?php
-                        if (!(strcmp("CMS", $ligne_competence['categorie']))) {
-                            echo "selected=\"selected\"";   
-                        }
-                    ?>>CMS</option>
-                    <option value="Frameworks" <?php
-                        if (!(strcmp("Frameworks", $ligne_competence['categorie']))) {
-                            echo "selected=\"selected\"";
-                        }
-                    ?>>Frameworks</option>
-                    <option value="Front" <?php
-                        if (!(strcmp("Front", $ligne_competence['categorie']))) {
-                            echo "selected=\"selected\"";
-                        }
-                    ?>>Front</option>
-                </select>
-            </div>
-            <div class="">
-                <button type="submit">MAJ</button>
-            </div>
-        </form>
+        </div>
     </body>
 </html>

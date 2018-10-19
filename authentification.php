@@ -47,7 +47,10 @@ if(isset($_POST['connexion'])) {// connexion est le name du button
 <link href="admin/css/admin.css" rel="stylesheet" type="text/css">
 
 </head>
-<body>
+<body class="text-center">
+        
+
+
     <!-- <form action="authentification.php" method="post">
         <h1>Admin : authentification</h1>
             <label for="email">Votre email</label>
@@ -57,6 +60,7 @@ if(isset($_POST['connexion'])) {// connexion est le name du button
             <input type="password" name="mdp" class="form-control" placeholder="vous seul le connaissez" required>
         <button name="connexion" type="submit" class="form-control">Se connecter</button>
     </form> -->
+
 
     <div class="container">
         <form class="form-horizontal" role="form" method="POST" action="authentification.php">

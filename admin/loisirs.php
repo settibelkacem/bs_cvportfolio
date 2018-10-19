@@ -77,8 +77,6 @@ if(isset($_GET['id_loisir'])) {// on récupère ce que je supprime dans l'url pa
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS en CDN-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
     <?php
         //requête pour une seule info avec la condition de la variable $id_utilisateur
         $sql = $pdoCV->query(" SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur' ");
@@ -87,66 +85,77 @@ if(isset($_GET['id_loisir'])) {// on récupère ce que je supprime dans l'url pa
     <title>Admin :  les loisirs <?php echo $ligne_utilisateur['pseudo']; ?></title>
 	<?php require 'inc/head.php'; ?>
 </head>
-  <body>
-	  <div class="container">
-		   <?php require 'inc/navigation.php'; ?>
-  <div class="row">
-	  <div class="jumbotron">
-		  <?php 
-            //requête pour compter et chercher plusieurs enregistrements on ne peut compter que si on a un prépare
-            $sql = $pdoCV->prepare(" SELECT * FROM t_loisirs  WHERE id_utilisateur = '$id_utilisateur' $ordre ");
-            $sql->execute();
-            $nbr_loisirs = $sql->rowCount();
-    ?>
-  <h1 class="display-4"><i class="fas fa-bicycle"></i> - Les loisirs</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr class="my-4">
-  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-</div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12 col-xl-8 fondbleu">
-     <div class="">
 
-    <table border="1">
-    <caption>La liste des loisirs : <?php echo $nbr_loisirs; ?></caption>
-        <thead>
-            <tr>
-                <th><a href="loisirs.php?colonne=loisirs&ordre=desc">De Z à A</a> - Loisirs - <a href="loisirs.php?colonne=loisirs&ordre=asc">De A à Z</a></th>
-                <th>Modifier</th>
-                <th>Suppression</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php while($ligne_loisir=$sql->fetch()) 
-            {
-        ?>
-            <tr>
-                <td><?php echo $ligne_loisir['loisir']; ?></td><td><a href="modif_loisir.php?id_loisir=<?php echo $ligne_loisir['id_loisir']; ?>">modif.</a> </td>
-                <td><a href="loisirs.php?id_loisir=<?php echo $ligne_loisir['id_loisir']; ?>">suppr.</a> </td>
-            </tr>
-            <?php 
-                }
-            ?>
-        </tbody>
-    </table>
-</div>
+  <body class="text-center">
+	  <div class="container-fluid">
+		   <?php require 'inc/navigation.php'; ?>
+  
+	    <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4"><i class="fas fa-table-tennis"></i> - Les loisirs</h1>
+                <p class="lead">Gestion des données de mon CV.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 w-75 p-3">
+                <div class="card text-dark bg-primary mb-3">
+                    <?php 
+                        //requête pour compter et chercher plusieurs enregistrements on ne peut compter que si on a un prépare
+                        $sql = $pdoCV->prepare(" SELECT * FROM t_loisirs  WHERE id_utilisateur = '$id_utilisateur' $ordre ");
+                        $sql->execute();
+                        $nbr_loisirs = $sql->rowCount();
+                    ?>
+
+                    <div class="card-header">
+                        La liste des loisirs : <?php echo $nbr_loisirs; ?>
+                    </div>
+                    <div class="card-body table-responsive-sm table-responsive-md">
+                        <table class="table table-bordered">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th><a href="loisirs.php?colonne=loisirs&ordre=desc"><i class="fas fa-arrow-circle-down"></i></a> - Loisirs - <a href="loisirs.php?colonne=loisirs&ordre=asc"><i class="fas fa-arrow-circle-up"></i></a></th>
+                                    <th>Modifier</th>
+                                    <th>Suppression</th>
+                                </tr>
+                            </thead>
+                            <tbody class="thead-light">
+                                <?php while($ligne_loisir=$sql->fetch()) 
+                                    {
+                            
+                                    echo '<tr>';
+                                        echo '<td>'. $ligne_loisir['loisir'] . '</td><td><a href="modif_loisir.php?id_loisir='.  $ligne_loisir['id_loisir'].'"onclick="return(confirm(\'Etes-vous certain de vouloir modifier cette competence?\'))"><i class="fas fa-edit"></a></td>';
+                                        echo '<td><a href="loisirs.php?id_loisir=' . $ligne_loisir['id_loisir'] . '"onclick="return(confirm(\'Etes-vous certain de vouloir supprimer cette competence?\'))" ><i class="far fa-trash-alt"></a></td>'; 
+                                    echo '</tr>';
+                                    }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div><!-- fin div .card-body table-responsive-sm table-responsive-md -->
+                </div><!-- fin div .card text-dark bg-info mb-3 -->
+            </div><!-- fin div .col-sm-12 col-md-12 col-lg-12 w-75 p-3 -->
+
+            <!-- insertion d'un nouveau loisir formulaire -->
+            
+            <div class="col-sm-12 col-lg-6 mx-auto">
+                <div class="card text-white bg-secondary mb-3">
+                    <div class="card-header">Insertion d'une nouveau loisir :</div>
+                        <div class="card-body">
+                            <form action="loisirs.php" method="post">
+                                <div class="form-group">
+                                    <label for="loisir">Loisir</label>
+                                    <input type="text" name="loisir" class="form-control" placeholder="nouveau loisir" required>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary" type="submit">Insérer un loisir</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-sm-12 col-md-12 col-xl-4 rose">
-       <hr>
-<!-- insertion d'un nouveau loisir formulaire -->
-<form action="loisirs.php" method="post">
-   <div class="">
-        <label for="loisir">Loisir</label>
-        <input type="text" name="loisir" placeholder="nouveau loisir" required>
-   </div>
-   <div class="">
-        <button type="submit">Insérer un loisir</button>
-   </div>
-</form>
-    </div>
-  </div>
-</div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

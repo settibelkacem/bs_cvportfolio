@@ -1,5 +1,5 @@
 <!-- navigation principale -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-secondary sticky-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 	<a class="navbar-brand" href="index.php"><i class="fas fa-briefcase"></i></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -34,3 +34,7 @@
         </ul>
       </div>
     </nav><!-- fin navigation -->
+
+
+
+    
