@@ -48,6 +48,12 @@ if(isset($_POST['connexion'])) {// connexion est le name du button
 
 </head>
 <body class="text-center">
+<<<<<<< HEAD
+=======
+        
+
+
+>>>>>>> 8b4218408004856719a93cd581d82ff29cf5548f
     <!-- <form action="authentification.php" method="post">
         <h1>Admin : authentification</h1>
             <label for="email">Votre email</label>
@@ -57,6 +63,7 @@ if(isset($_POST['connexion'])) {// connexion est le name du button
             <input type="password" name="mdp" class="form-control" placeholder="vous seul le connaissez" required>
         <button name="connexion" type="submit" class="form-control">Se connecter</button>
     </form> -->
+
 
     <div class="container">
         <form class="form-horizontal form-signin" role="form" method="POST" action="authentification.php">
