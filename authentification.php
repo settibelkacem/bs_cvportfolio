@@ -47,7 +47,7 @@ if(isset($_POST['connexion'])) {// connexion est le name du button
 <link href="admin/css/admin.css" rel="stylesheet" type="text/css">
 
 </head>
-<body>
+<body class="text-center">
     <!-- <form action="authentification.php" method="post">
         <h1>Admin : authentification</h1>
             <label for="email">Votre email</label>
@@ -59,17 +59,17 @@ if(isset($_POST['connexion'])) {// connexion est le name du button
     </form> -->
 
     <div class="container">
-        <form class="form-horizontal" role="form" method="POST" action="authentification.php">
-            <div class="row">
+        <form class="form-horizontal form-signin" role="form" method="POST" action="authentification.php">
+            <div class="row text-center mb-4">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                    <h2>Authentification</h2>
+                    <h2 class="h3 mb-3 font-weight-normal">>Authentification</h2>
                     <hr>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-3"></div>
-                <div class="col-md-6">
+                <div class="<<ù">
                     <div class="form-group has-danger">
                     <label for="email" class="sr-only">Votre email</label>
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
