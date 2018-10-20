@@ -85,6 +85,7 @@ if(isset($_GET['id_competence'])) {// on récupère ce que je supprime dans l'ur
         
         <?php
             //requête pour une seule info avec la condition de la variable $id_utilisateur
+            $sql = $pdoCV->query(" SELECT * FROM t_utilisateurs WHERE id_utilisateur='$id_utilisateur' ");
             $ligne_utilisateur = $sql->fetch();
         ?>
         <title>Admin :  <?php echo $ligne_utilisateur['pseudo']; ?></title>
