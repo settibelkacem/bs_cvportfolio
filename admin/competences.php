@@ -95,33 +95,7 @@ if (isset($_GET['id_competence'])) {// on récupère ce que je supprime dans l'u
                     <span data-feather="layers"></span>
                       reseaux
                   </a>
-                  <a class="nav-link" href="modif_competence.php">
-                    modif competence
-                  </a>
-                  <a class="nav-link" href="modif_experience.php">
-                    <span data-feather="file-text"></span>
-                      modif experiences
-                  </a>
-                  <a class="nav-link" href="modif_formation.php">
-                    <span data-feather="file-text"></span>
-                      modif formation
-                  </a>
-                  <a class="nav-link" href="modif_loisir.php">
-                    <span data-feather="file-text"></span>
-                      Year-end sale
-                  </a>
-                  <a class="nav-link" href="modif_realisation.php">
-                    <span data-feather="file-text"></span>
-                      Year-end sale
-                  </a>
-                  <a class="nav-link" href="modif_reseau.php">
-                    <span data-feather="file-text"></span>
-                      Year-end sale
-                  </a>
-                  <a class="nav-link" href="modif_message.php">
-                    <span data-feather="file-text"></span>
-                      Year-end sale
-                  </a>
+                  
                 </div>
               </div> 
             </div>
