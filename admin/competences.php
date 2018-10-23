@@ -68,31 +68,31 @@ if (isset($_GET['id_competence'])) {// on récupère ce que je supprime dans l'u
                 <button class="dropbtn">Dashboard</button>
                 <div class="dropdown-content">
                   <a class="nav-link" href="profil.php">
-                    <span data-feather="file"></span>
+                    <i class="fas fa-user"></i>
                       profil
                   </a>
                   <a class="nav-link" href="competences.php">
-                    <span data-feather="file"></span>
+                    <i class="fas fa-book-reader"></i>
                       compétences
                   </a>
                   <a class="nav-link" href="experiences.php">
-                    <span data-feather="shopping-cart"></span>
+                    <i class="fas fa-building"></i>
                       expériences
                   </a>
                   <a class="nav-link" href="formations.php">
-                    <span data-feather="users"></span>
+                    <i class="fas fa-school"></i>
                       formations
                   </a>
                   <a class="nav-link" href="loisirs.php">
-                    <span data-feather="bar-chart-2"></span>
+                    <i class="fas fa-table-tennis"></i>
                       loisirs
                   </a>
                   <a class="nav-link" href="realisations.php">
-                    <span data-feather="layers"></span>
+                    <i class="fas fa-clipboard"></i>
                       réalisations
                   </a>
                   <a class="nav-link" href="reseaux.php">
-                    <span data-feather="layers"></span>
+                    <i class="fas fa-globe"></i>
                       réseaux
                   </a>
                   
