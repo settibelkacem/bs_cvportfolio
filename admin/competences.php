@@ -69,15 +69,15 @@ if (isset($_GET['id_competence'])) {// on récupère ce que je supprime dans l'u
                 <div class="dropdown-content">
                   <a class="nav-link" href="profil.php">
                     <span data-feather="file"></span>
-                      profile
+                      profil
                   </a>
                   <a class="nav-link" href="competences.php">
                     <span data-feather="file"></span>
-                      competences
+                      compétences
                   </a>
                   <a class="nav-link" href="experiences.php">
                     <span data-feather="shopping-cart"></span>
-                      experiences
+                      expériences
                   </a>
                   <a class="nav-link" href="formations.php">
                     <span data-feather="users"></span>
@@ -89,11 +89,11 @@ if (isset($_GET['id_competence'])) {// on récupère ce que je supprime dans l'u
                   </a>
                   <a class="nav-link" href="realisations.php">
                     <span data-feather="layers"></span>
-                      realisation
+                      réalisations
                   </a>
                   <a class="nav-link" href="reseaux.php">
                     <span data-feather="layers"></span>
-                      reseaux
+                      réseaux
                   </a>
                   
                 </div>
