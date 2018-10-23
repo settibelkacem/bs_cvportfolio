@@ -1,4 +1,5 @@
-<?php require 'inc/connexion.php';
+<?php require 'inc/init.inc.php'; ?>
+<?php require 'inc/acces_admin.php'; 
 //pour le tri des colonnes 
 $ordre = ''; // on vide la variable 
 
@@ -39,7 +40,7 @@ if(isset($_GET['id_url'])) {// on récupère ce que je supprime dans l'url par s
 
     header("location: ../admin/reseaux.php");
 }//ferme le if isset pour la suppression
-
+//--------------------AFFICHAGE------------------------------
 ?>
 
 <!doctype html>
@@ -49,8 +50,7 @@ if(isset($_GET['id_url'])) {// on récupère ce que je supprime dans l'url par s
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- Bootstrap CSS en CDN-->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
+ 
         <?php
             //requête pour une seule info avec la condition de la variable $id_utilisateur
             $sql = $pdoCV->query(" SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur' ");
@@ -60,10 +60,9 @@ if(isset($_GET['id_url'])) {// on récupère ce que je supprime dans l'url par s
         <?php require 'inc/head.php'; ?>
     </head>
 
-    <body>
+    <body class="text-center">
+        <?php require 'inc/navigation.php'; ?>
 	  <div class="container">
-		   <?php require 'inc/navigation.php'; ?>
-            <div class="row">
 	            <div class="jumbotron">
 		            <?php 
                     //requête pour compter et chercher plusieurs enregistrements on ne peut compter que si on a un prépare
@@ -76,9 +75,9 @@ if(isset($_GET['id_url'])) {// on récupère ce que je supprime dans l'url par s
                     <hr class="my-4">
                     <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
                 </div>
-            </div>
+
             <div class="row">
-                <div class="col-sm-12 col-xl-8 fondbleu">
+                <div class="col-sm-12 col-xl-8">
                     <div class="">
                         <table border="1">
                             <caption>La liste des reseaux : <?php echo $nbr_reseaux; ?></caption>

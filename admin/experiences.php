@@ -1,4 +1,5 @@
-<?php require 'inc/connexion.php'; 
+<?php require 'inc/init.inc.php'; ?>
+<?php require 'inc/acces_admin.php';  
 
 //pour le tri des colonnes 
 $ordre = ''; // on vide la variable 
@@ -44,7 +45,7 @@ if (isset($_GET['id_experience'])) {// on récupère ce que je supprime dans l'u
 
     header("location: ../admin/experiences.php");
 }//ferme le if isset pour la suppression
-
+//------------------------------------AFFICHAGE---------------------------------
 ?>
 <!doctype html>
 <html lang="fr">
@@ -137,11 +138,8 @@ if (isset($_GET['id_experience'])) {// on récupère ce que je supprime dans l'u
                     </form><!-- fin formulaire -->
                 </div><!-- fin div .rose -->
             </div><!-- fin div .row -->
-        </div><!-- fin div .container -->
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    </body>
-</html>
+        
+
+<?php
+
+require_once 'inc/bas.inc.php'; // footer et fermeture des balises

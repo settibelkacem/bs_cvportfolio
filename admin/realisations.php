@@ -1,4 +1,5 @@
-<?php require 'inc/connexion.php';
+<?php require 'inc/init.inc.php'; ?>
+<?php require 'inc/acces_admin.php';
 
   //pour le tri des colonnes 
   $ordre = ''; // on vide la variable 
@@ -45,36 +46,36 @@
 
     header("location: ../admin/realisations.php");
   }//ferme le if isset pour la suppression
-
+//---------------------AFFICHAGE-----------------------------
 ?>
 <!doctype html>
 <html lang="fr">
-<head>
+  <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS en CDN-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
-	  <?php
-        //requête pour une seule info
-        $sql = $pdoCV->query(" SELECT * FROM t_utilisateurs ");
-        $ligne_utilisateur = $sql->fetch();
+    <?php
+      //requête pour une seule info
+      $sql = $pdoCV->query(" SELECT * FROM t_utilisateurs ");
+      $ligne_utilisateur = $sql->fetch();
     ?>
     <title>Admin :  <?php echo $ligne_utilisateur['pseudo']; ?></title>
-	<?php require 'inc/head.php'; ?>
-</head>
+    <?php require 'inc/head.php'; ?>
+  </head>
   <body>
 	  <div class="container">
-		   <?php require 'inc/navigation.php'; ?>
-  <div class="row">
-	  <div class="jumbotron">
-  <h1 class="display-4"><i class="fas fa-school"></i> - Les realisations</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr class="my-4">
-  <a class="btn btn-primary btn-lg" href="#" role="button">VOIR</a>
-</div>
-  </div>
+		  <?php require 'inc/navigation.php'; ?>
+    <div class="row">
+      <div class="jumbotron">
+        <h1 class="display-4"><i class="fas fa-school"></i> - Les realisations</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4">
+        <a class="btn btn-primary btn-lg" href="#" role="button">VOIR</a>
+      </div>
+    </div>
   <div class="row">
     <div class="col-sm-12 col-md-12 col-xl-5 fondbleu">
 		 <?php 
@@ -94,50 +95,44 @@
   <div class="card-body">
     <h5 class="card-title"><?php echo $ligne_realisation['stitre_real']; ?></h5>
     <p class="card-text"><?php echo $ligne_realisation['description_real']; ?></p>
-    <div class="btn-group btn-group-sm" role="group"><a href="modif_realisation.php?id_realisation=<?php echo $ligne_realisation['id_realisation']; ?>" class="btn btn-primary">Mise à jour</a><a href="realisations.php?id_realisation=<?php echo $ligne_realisation['id_realisation']; ?>" class="btn btn-danger">Suppr.</a></div>
-  </div>
-</div>
+      <div class="btn-group btn-group-sm" role="group"><a href="modif_realisation.php?id_realisation=<?php echo $ligne_realisation['id_realisation']; ?>" class="btn btn-primary">Mise à jour</a><a href="realisations.php?id_realisation=<?php echo $ligne_realisation['id_realisation']; ?>" class="btn btn-danger">Suppr.</a></div>
+    </div>
+    </div>
             <?php 
                 }
             ?>
     </div>
     <div class="col-sm-12 col-md-12 col-xl-7 rose">
-     <form action="realisations.php" method="post">
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="titre_real">Titre realisation</label>
-      <input type="titre_real" class="form-control" name="titre_real" placeholder="titre">
-    </div>
-	  <div class="form-group col-md-6">
-		<label for="dates_real">Dates</label>
-		<input type="text" class="form-control" name="dates_real" placeholder="ex. 2018/2019">
-	  </div>
+      <form action="realisations.php" method="post">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="titre_real">Titre realisation</label>
+            <input type="titre_real" class="form-control" name="titre_real" placeholder="titre">
+          </div>
+	        <div class="form-group col-md-6">
+		        <label for="dates_real">Dates</label>
+		        <input type="text" class="form-control" name="dates_real" placeholder="ex. 2018/2019">
+	        </div>
    
-  </div>
-	 <div class="form-group">
-      <label for="stritre_real">Sous-titre</label>
-      <input type="text" class="form-control" name="stritre_real" placeholder="sous-titre">
+        </div>
+        <div class="form-group">
+          <label for="stritre_real">Sous-titre</label>
+          <input type="text" class="form-control" name="stritre_real" placeholder="sous-titre">
+        </div>
+        <div class="form-group">
+          <label for="description_real">Description VOIR</label>
+          <textarea type="text" class="form-control" name="description_real" id="description_real">text</textarea>
+          <script>
+            // Replace the <textarea id="editor1"> with a CKEditor
+            // instance, using default configuration.
+            CKEDITOR.replace( 'description_real' );
+          </script>
+        </div>
+        <button type="submit" class="btn btn-primary">Insérer</button>
+      </form>
     </div>
-  <div class="form-group">
-    <label for="description_real">Description VOIR</label>
-    <textarea type="text" class="form-control" name="description_real" id="description_real">text</textarea>
-    <script>
-      // Replace the <textarea id="editor1"> with a CKEditor
-      // instance, using default configuration.
-      CKEDITOR.replace( 'description_real' );
-    </script>
-  </div>
-  
  
-  <button type="submit" class="btn btn-primary">Insérer</button>
-</form>
-    </div>
-  </div>
-</div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  </body>
-</html>
+  
+<?php
+
+require_once 'inc/bas.inc.php'; // footer et fermeture des balises

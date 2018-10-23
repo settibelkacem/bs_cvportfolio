@@ -1,10 +1,9 @@
-<?php require 'inc/connexion.php'; 
-require 'inc/head.php';
+<?php require 'inc/init.inc.php';
+    require 'inc/acces_admin.php'; 
 
 //gestion mise à jour d'une information
 if(isset($_POST['competence'])){
 
-   
     $competence = addslashes($_POST['competence']);
     $niveau = addslashes($_POST['niveau']);
     $categorie = addslashes($_POST['categorie']);
@@ -19,7 +18,7 @@ if(isset($_POST['competence'])){
 $id_competence = $_GET['id_competence']; // par son id et avec GET
 $sql = $pdoCV->query(" SELECT * FROM t_competences WHERE id_competence='$id_competence' ");
 $ligne_competence = $sql->fetch();//va chercher ! va !
-
+//--------------------AFFICHAGE-----------------------------
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -27,9 +26,17 @@ $ligne_competence = $sql->fetch();//va chercher ! va !
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Admin : mise à jour loisir</title>
+        <?php
+      //requête pour une seule info avec la condition de la variable $id_utilisateur
+        $sql = $pdoCV->query(" SELECT * FROM t_utilisateurs WHERE id_utilisateur='$id_utilisateur' ");
+        $ligne_utilisateur = $sql->fetch();
+        ?>
+        
+        <title>Admin : mise à jour competence</title>
+        <?php require 'inc/head.php'; ?>
     </head>
     <body class="text-center">
+        <?php require 'inc/navigation.php'; ?>
         <div class="container">
             <div class="jumbotron">
                 <div class="container">
@@ -82,6 +89,8 @@ $ligne_competence = $sql->fetch();//va chercher ! va !
                     </form>
                 </div>
             </div>
-        </div>
-    </body>
-</html>
+       
+
+<?php
+
+require_once 'inc/bas.inc.php'; // footer et fermeture des balises

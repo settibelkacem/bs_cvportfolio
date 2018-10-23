@@ -1,4 +1,5 @@
 <?php require 'inc/connexion.php'; ?>
+<?php require 'inc/acces_admin.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>

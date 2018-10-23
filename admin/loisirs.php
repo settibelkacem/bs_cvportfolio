@@ -1,4 +1,5 @@
-<?php require 'inc/connexion.php';
+<?php require 'inc/init.inc.php'; ?>
+<?php require 'inc/acces_admin.php';
 //pour le tri des colonnes 
 $ordre = ''; // on vide la variable 
 
@@ -39,7 +40,7 @@ if(isset($_GET['id_loisir'])) {// on récupère ce que je supprime dans l'url pa
 
     header("location: ../admin/loisirs.php");
 }//ferme le if isset pour la suppression
-
+//-----------------------------AFFICHAGE---------------------------
 ?>
 <!doctype html>
 <html lang="fr">
@@ -58,9 +59,8 @@ if(isset($_GET['id_loisir'])) {// on récupère ce que je supprime dans l'url pa
 </head>
 
   <body class="text-center">
-	  <div class="container-fluid">
-		   <?php require 'inc/navigation.php'; ?>
-  
+  <?php require 'inc/navigation.php'; ?>
+	  <div class="container">
 	    <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h1 class="display-4"><i class="fas fa-table-tennis"></i> - Les loisirs</h1>
@@ -69,8 +69,8 @@ if(isset($_GET['id_loisir'])) {// on récupère ce que je supprime dans l'url pa
         </div>
 
         <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12 w-75 p-3">
-                <div class="card text-dark bg-primary mb-3">
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <div class="card text-dark mb-3">
                     <?php 
                         //requête pour compter et chercher plusieurs enregistrements on ne peut compter que si on a un prépare
                         $sql = $pdoCV->prepare(" SELECT * FROM t_loisirs  WHERE id_utilisateur = '$id_utilisateur' $ordre ");
@@ -82,20 +82,21 @@ if(isset($_GET['id_loisir'])) {// on récupère ce que je supprime dans l'url pa
                         La liste des loisirs : <?php echo $nbr_loisirs; ?>
                     </div>
                     <div class="card-body table-responsive-sm table-responsive-md">
-                        <table class="table table-bordered">
-                            <thead class="thead-dark">
+                        <table class="table table-striped">
+                            <thead>
                                 <tr>
                                     <th><a href="loisirs.php?colonne=loisir&ordre=desc"><i class="fas fa-arrow-circle-down"></i></a> - Loisirs - <a href="loisirs.php?colonne=loisirs&ordre=asc"><i class="fas fa-arrow-circle-up"></i></a></th>
                                     <th>Modifier</th>
                                     <th>Suppression</th>
                                 </tr>
                             </thead>
-                            <tbody class="thead-light">
+                            <tbody>
                                 <?php while($ligne_loisir=$sql->fetch()) 
                                     {
                             
                                     echo '<tr>';
-                                        echo '<td>'. $ligne_loisir['loisir'] . '</td><td><a href="modif_loisir.php?id_loisir='.  $ligne_loisir['id_loisir'].'"onclick="return(confirm(\'Etes-vous certain de vouloir modifier cette competence?\'))"><i class="fas fa-edit"></a></td>';
+                                        echo '<td>'. $ligne_loisir['loisir'] . '</td>';
+                                        echo '<td><a href="modif_loisir.php?id_loisir='.  $ligne_loisir['id_loisir'].'"onclick="return(confirm(\'Etes-vous certain de vouloir modifier cette competence?\'))"><i class="fas fa-edit"></a></td>';
                                         echo '<td><a href="loisirs.php?id_loisir=' . $ligne_loisir['id_loisir'] . '"onclick="return(confirm(\'Etes-vous certain de vouloir supprimer cette competence?\'))" ><i class="far fa-trash-alt"></a></td>'; 
                                     echo '</tr>';
                                     }
@@ -104,33 +105,31 @@ if(isset($_GET['id_loisir'])) {// on récupère ce que je supprime dans l'url pa
                         </table>
                     </div><!-- fin div .card-body table-responsive-sm table-responsive-md -->
                 </div><!-- fin div .card text-dark bg-info mb-3 -->
-            </div><!-- fin div .col-sm-12 col-md-12 col-lg-12 w-75 p-3 -->
+            </div><!-- fin div .col-sm-12 col-md-8 col-lg-4 w-75 p-3 -->
 
             <!-- insertion d'un nouveau loisir formulaire -->
-            
-            <div class="col-sm-12 col-lg-6 mx-auto">
-                <div class="card text-white bg-secondary mb-3">
+
+
+            <div class="col-sm-12 col-md-6 col-lg-6 mt-5">
+                <div class="card text-dark mb-3">
                     <div class="card-header">Insertion d'un nouveau loisir :</div>
                         <div class="card-body">
-                            <form action="loisirs.php" method="post">
-                                <div class="form-group">
-                                    <label for="loisir">Loisir</label>
+                            <form class="form-inline" action="loisirs.php" method="post">
+                                <div class="form-group mb-2 ml-5 mr-2">
+                                    <label for="loisir" class="sr-only">Loisir</label>
                                     <input type="text" name="loisir" class="form-control" placeholder="nouveau loisir" required>
                                 </div>
-                                <div class="form-group">
-                                    <button class="btn btn-primary" type="submit">Insérer un loisir</button>
-                                </div>
+                                
+                                    <button class="btn btn-primary mb-2" type="submit">Insérer un loisir</button>
+                                
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  </body>
-</html>
+    
+
+<?php
+
+require_once 'inc/bas.inc.php'; // footer et fermeture des balises

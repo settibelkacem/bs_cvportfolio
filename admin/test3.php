@@ -1,4 +1,5 @@
-<?php require 'inc/connexion.php'; 
+<?php require 'inc/connexion.php'; ?>
+<?php require 'inc/acces_admin.php'; 
  require 'inc/head.php'; 
  require 'inc/navigation.php';
 

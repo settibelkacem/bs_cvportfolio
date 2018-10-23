@@ -1,4 +1,5 @@
-<?php require 'inc/connexion.php'; 
+<?php require 'inc/init.inc.php';
+ require 'inc/acces_admin.php'; 
 
     //gestion mise à jour d'une information
     if(isset($_POST['titre_form'])){
@@ -17,7 +18,7 @@
     $id_formation = $_GET['id_formation']; // par son id et avec GET
     $sql = $pdoCV->query(" SELECT * FROM t_formations WHERE id_formation='$id_formation' ");
     $ligne_formation = $sql->fetch();//va chercher !
-
+//-----------------------AFFICHAGE------------------------------    
 ?>
 
 <!DOCTYPE html>
@@ -26,10 +27,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Admin : mise à jour formation</title>
+    <<?php
+      //requête pour une seule info avec la condition de la variable $id_utilisateur
+    $sql = $pdoCV->query(" SELECT * FROM t_utilisateurs WHERE id_utilisateur='$id_utilisateur' ");
+    $ligne_utilisateur = $sql->fetch();
+    ?>
+        
+    <title>Admin : mise à jour de formation</title>
+    <?php require 'inc/head.php'; ?>
 </head>
-<body>
-    <h1>Mise à jour d'un loisir</h1>
+<body class="text-center">
+    <?php require 'inc/navigation.php'; ?>
+    <div class="container">
+        <div class="jumbotron">
+                <div class="container">
+                    <h1 class="display-4">Mise à jour de loisir</h1>
+                    <p class="lead">Mise à jour de mon CV.</p>
+                </div>
+        </div>
     <!-- mise à jour formulaire -->
     <form action="modif_formationtitre_form.php" method="post">
         <div class="form-group">
@@ -56,5 +71,7 @@
             <button type="submit">MAJ</button>
         </div>
     </form>
-</body>
-</html>
+
+  <?php
+
+    require_once 'inc/bas.inc.php'; // footer et fermeture des balises

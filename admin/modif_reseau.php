@@ -1,4 +1,5 @@
-<?php require 'inc/connexion.php'; 
+<?php require 'inc/connexion.php'; ?>
+<?php require 'inc/acces_admin.php'; 
 
 
 //gestion mise à jour d'une information
@@ -18,7 +19,7 @@ if(isset($_POST['nom_reseau'])){
 $id_url = $_GET['id_url']; // par son id et avec GET
 $sql = $pdoCV->query(" SELECT * FROM t_reseaux WHERE id_url='$id_url' ");
 $ligne_url = $sql->fetch();//va chercher 
-
+//------------------------AFFICHAGE------------------------------
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +31,8 @@ $ligne_url = $sql->fetch();//va chercher
     <title>Admin : mise à jour url</title>
 </head>
 <body>
-    <h1>Mise à jour d'un url</h1>
+    <div class="container-fluid">
+        <h1>Mise à jour d'un url</h1>
     <!-- mise à jour formulaire -->
         <form action="modif_reseau.php" method="post">
             <div class="form-group">
@@ -46,5 +48,9 @@ $ligne_url = $sql->fetch();//va chercher
                 <button type="submit">MAJ</button>
         </div>
         </form>
-</body>
-</html>
+
+    
+
+<?php
+
+require_once 'inc/bas.inc.php'; // footer et fermeture des balises

@@ -1,5 +1,5 @@
-<?php
-require_once 'inc/init.inc.php';
+<?php require 'inc/init.inc.php'; ?>
+<?php require 'inc/acces_admin.php'; 
 
 //1- redirection si l'internaute n'est pas connecté :
 if(!internauteEstConnecte()) {  // si le membre n'est pas connecté il ne doit pas avoir accés à la page profil
@@ -11,12 +11,6 @@ if(!internauteEstConnecte()) {  // si le membre n'est pas connecté il ne doit p
 // 2- préparation du profil à afficher :
 //debug($_SESSION);
 extract($_SESSION['membre']);   // extrait tous les indices de l'array sous forme de variable auxquelles on affecte la valeur dans l'array. Exemple : $_SESSION['membre']['pseudo']  devient $pseudo = $_SESSION['membre']['pseudo'];
-
-
-
-
-
-
 
 
 //-----------------------------------------------------------AFFICHAGE---------------------------------------------------------
@@ -37,18 +31,6 @@ if(internauteEstConnecteEtAdmin()) echo '<p>Vous êtes un administrateur.</p>';
 <p>Votre adresse : <?php echo$adresse; ?></p>
 <p>Votre ville: <?php echo$ville; ?></p>
 <p>Votre code postal : <?php echo$code_postal; ?></p>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
