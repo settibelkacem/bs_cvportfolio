@@ -66,7 +66,7 @@ if(isset($_GET['id_formation'])) {// on récupère ce que je supprime dans l'url
     <title>Admin :  <?php echo $ligne_utilisateur['pseudo']; ?></title>
   <?php require 'inc/head.php'; ?>
   </head>
-  <body>
+  <body class="text-center">
     <div class="container-fluid ">
 
       <?php require 'inc/navigation.php'; ?>

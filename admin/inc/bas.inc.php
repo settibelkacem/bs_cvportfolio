@@ -1,7 +1,4 @@
-</div> <!--  fin class container fluid -->
 
-<!--  footer -->
-<div class="container-fluid">
   <hr>
   <footer>
     <div class="row">
@@ -10,7 +7,7 @@
       </div>
     </div>
   </footer>
-</div>
+</div><!--  fin class container fluid -->
 <!--  fin footer -->
 
 

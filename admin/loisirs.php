@@ -1,5 +1,6 @@
-<?php require 'inc/init.inc.php'; ?>
-<?php require 'inc/acces_admin.php';
+<?php require 'inc/init.inc.php'; 
+ require 'inc/acces_admin.php';
+
 //pour le tri des colonnes 
 $ordre = ''; // on vide la variable 
 
@@ -59,15 +60,17 @@ if(isset($_GET['id_loisir'])) {// on récupère ce que je supprime dans l'url pa
 </head>
 
   <body class="text-center">
-  <?php require 'inc/navigation.php'; ?>
-	  <div class="container">
-	    <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-4"><i class="fas fa-table-tennis"></i> - Les loisirs</h1>
-                <p class="lead">Gestion des données de mon CV.</p>
-            </div>
+  <div class="container-fluid"> 
+    <?php require 'inc/navigation.php'; ?>
+	  
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4"><i class="fas fa-table-tennis"></i> - Les loisirs</h1>
+            <p class="lead">Gestion des données de mon CV.</p>
         </div>
+    </div><!-- fin jumbotron -->
 
+    <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-6 col-lg-6">
                 <div class="card text-dark mb-3">
@@ -120,15 +123,14 @@ if(isset($_GET['id_loisir'])) {// on récupère ce que je supprime dans l'url pa
                                     <input type="text" name="loisir" class="form-control" placeholder="nouveau loisir" required>
                                 </div>
                                 
-                                    <button class="btn btn-primary mb-2" type="submit">Insérer un loisir</button>
-                                
+                                <button class="btn btn-primary mb-2" type="submit">Insérer un loisir</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    
+    </div><!-- fin div .container -->
 
 <?php
 

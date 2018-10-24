@@ -14,38 +14,37 @@
     <title>Admin :  <?php echo $ligne_utilisateur['pseudo']; ?></title>
 	<?php require 'inc/head.php'; ?>
 </head>
-  <body>
-    <?php require 'inc/navigation.php'; ?>
+  <body class="text-center">
 	  <div class="container-fluid">
-		   
-      <div class="row">
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-4"><i class="fas fa-briefcase"></i> - Admin :  <?php echo $ligne_utilisateur['pseudo']; ?></h1>
-                <p class="lead">Gestion des données de mon CV.</p>
-            </div>
-        </div>
-      </div>
+    <?php require 'inc/navigation.php'; ?>
+      <div class="jumbotron jumbotron-fluid">
+          <div class="container">
+              <h1 class="display-4"><i class="fas fa-briefcase"></i> - Admin :  <?php echo $ligne_utilisateur['pseudo']; ?></h1>
+              <p class="lead">Gestion des donnÃ©es de mon CV.</p>
+          </div>
+      </div><!-- fin jumbotron -->
+      <div class="container">
       <div class="row">
         <div class="col-sm-12 col-md-12 col-xl-8 fondbleu">
           <div class="card" style="width:400px">
             <img class="card-img-top" src="<?php echo $ligne_utilisateur['avatar']; ?>" alt="Mettre image">
             <div class="card-body">
-              <h4 class="card-title"><?php echo $ligne_utilisateur['prenom'].' '.$ligne_utilisateur['nom']; ?></h4>
-                <address class="card-text">
-	                <?php echo $ligne_utilisateur['adresse'].'<br>'.$ligne_utilisateur['code_postal'].' '.$ligne_utilisateur['ville'].'<br><i>'.$ligne_utilisateur['email'].'</i><br>'.$ligne_utilisateur['tel']; ?>
-	              </address>
-                <a href="#" class="btn btn-primary">Mon profil</a>
-            </div>
-          </div>
-        </div>
+              <h4 class="card-title"><?php echo $ligne_utilisateur['prenom'].' '.$ligne_utilisateur['nom']; ?>
+              </h4>
+              <address class="card-text">
+                <?php echo $ligne_utilisateur['adresse'].'<br>'.$ligne_utilisateur['code_postal'].' '.$ligne_utilisateur['ville'].'<br><i>'.$ligne_utilisateur['email'].'</i><br>'.$ligne_utilisateur['tel']; ?>
+              </address>
+              <a href="#" class="btn btn-primary">Mon profil</a>
+            </div><!-- fin div .card-body -->
+          </div><!-- fin div .card -->
+        </div><!-- fin div .col-sm-12 col-md-12 col-xl-8 fondbleu -->
         <div class="col-sm-12 col-md-12 col-xl-4 rose">
         2
         </div>
-      </div>
+      </div><!-- fin div .row -->
+      </div><!-- fin div .container -->
     
     <?php
-
     require_once 'inc/bas.inc.php'; // footer et fermeture des balises
 
     
