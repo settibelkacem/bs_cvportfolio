@@ -1,0 +1,192 @@
+@charset "UTF-8";
+/* font-family: 'Raleway', sans-serif; */
+/* bleu clair ->  #739DE8*/
+/* bleu foncé -> #2F405E */
+
+body, html{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: 'Raleway', sans-serif;  
+}
+
+.container-fluid{
+    padding: 0;
+}
+
+a, a:hover{
+    text-decoration: none;
+}
+
+.separator{
+    width: 7%;
+    height: 3px;
+    border: none;
+    box-shadow: none;
+    background: #739DE8;
+}
+
+.btn-custom{
+    background: #739DE8;
+    color: #fff;
+}
+
+/* header */
+.header{
+    background-color: #739DE8;
+    height: 70px;
+    line-height: 70px;
+}
+.logo{
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    float: left;
+}
+
+.menu{
+    float: right;
+}
+
+
+.menu a{
+    color: #fff;
+    margin-right: 20px;
+}
+
+.menu a:hover{
+    color: #2F405E;
+}
+
+.clear{
+    clear: both;
+}
+
+/* bannière */
+.banner{
+    width: 100%;
+    max-width: 100%;
+}
+
+.ban{
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+}
+.ban img{
+    width: 100%;
+    max-width: 100%;
+   
+}
+
+.inner-banner{
+    width: 100%;
+    position: absolute;
+    top: 40%;
+    text-align: center;
+}
+
+.inner-banner h1{
+    color: #2F405E;
+    text-shadow: 1px 1px 10px #2F405E;
+}
+
+.inner-banner .btn-custom{
+    background: #739DE8;
+    color: #fff;
+}
+
+.inner-banner .btn-custom:hover{
+    background: #2F405E;
+}
+
+/* about */
+#about{
+    text-align: center;
+    padding-top: 10%;
+}
+
+.about article{
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.about article h2{
+    text-align: center;
+}
+
+/* mon portfolio */
+.portfolio{
+    background: #eee;
+    height: 800px;
+}
+
+#portfolio{
+    text-align: center;
+    /* padding-top: 40px; */
+    /* padding-bottom: 10px; */
+}
+
+.portfolio .item-folio{
+    background-image: url('../img/1524.jpg');
+    background-size: cover;
+    height: 280px;
+    float: left;
+}
+
+/* contact */
+footer{
+    background: #2F405E;
+}
+
+#contact{
+    text-align: center;
+    color: #fff;
+    padding-top: 20px;
+}
+
+.span6{
+    width: 100%;
+}
+
+.formulaire{
+    width: 500px;
+    display: block;
+    margin: 0 auto;
+}
+
+input{
+    margin-bottom: 20px;
+}
+
+input[type=text]{
+    width: 500px;
+    height: 50px;
+    border: none;
+}
+
+input[type=email]{
+    width: 500px;
+    height: 50px;
+    border: none;
+}
+
+textarea{
+    width: 500px;
+    height: 200px;
+}
+
+footer p{
+    color: #fff;
+    text-align: center;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    padding-top: 5%;
+}
+
+i{
+    background: rgb(85, 17, 211);
+}

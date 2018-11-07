@@ -10,10 +10,10 @@ if(isset($_GET['ordre']) && isset($_GET['colonne'])){
 	}
 	
 	if($_GET['ordre'] == 'asc'){
-		$ordre.= ' ASC';
+		$ordre .= ' ASC';
 	}
 	elseif($_GET['ordre'] == 'desc'){
-		$ordre.= ' DESC';
+		$ordre .= ' DESC';
 	}
 }
 
@@ -73,7 +73,7 @@ if(isset($_GET['id_loisir'])) {// on récupère ce que je supprime dans l'url pa
                 <div class="card text-dark mb-3">
                     <?php 
                         //requête pour compter et chercher plusieurs enregistrements on ne peut compter que si on a un prépare
-                        $sql = $pdoCV->prepare(" SELECT * FROM t_loisirs  WHERE id_utilisateur = '$id_utilisateur' $ordre ");
+                        $sql = $pdoCV->prepare(" SELECT * FROM t_loisirs".$ordre);
                         $sql->execute();
                         $nbr_loisirs = $sql->rowCount();
                     ?>
@@ -85,7 +85,16 @@ if(isset($_GET['id_loisir'])) {// on récupère ce que je supprime dans l'url pa
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th><a href="loisirs.php?colonne=loisir&ordre=desc"><i class="fas fa-arrow-circle-down"></i></a> - Loisirs - <a href="loisirs.php?colonne=loisirs&ordre=asc"><i class="fas fa-arrow-circle-up"></i></a></th>
+                                    <th>
+                                        <a href="loisirs.php?colonne=loisirs&ordre=desc">
+                                            <i class="fas fa-arrow-circle-down"></i>
+                                        </a> 
+                                            - Loisirs - 
+                                        <a href="loisirs.php?colonne=loisirs&ordre=asc">
+                                            <i class="fas fa-arrow-circle-up"></i>
+                                        </a>
+                                    </th>
+
                                     <th>Modifier</th>
                                     <th>Suppression</th>
                                 </tr>

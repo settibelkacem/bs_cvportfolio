@@ -10,9 +10,6 @@
           <li class="nav-item active">
             <a class="nav-link" href="index.php"><i class="fas fa-home"></i> <?php echo $ligne_utilisateur['prenom']; ?> </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="profil.php"><i class="fas fa-user"></i></a>
-          </li>
           <li class="nav-item text-nowrap">
             <a class="nav-link" href="messages.php"><i class="fa fa-envelope"></i></a>
           </li>

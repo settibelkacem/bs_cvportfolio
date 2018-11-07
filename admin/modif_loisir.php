@@ -15,9 +15,8 @@
     $id_loisir = $_GET['id_loisir']; // par son id et avec GET
     $sql = $pdoCV->query(" SELECT * FROM t_loisirs WHERE id_loisir='$id_loisir' ");
     $ligne_loisir = $sql->fetch();//va chercher !
-//-----------------------AFFICHAGE-------------------------------
+//-----------------------AFFICHAGE-----------------------------
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -36,9 +35,8 @@
 <body class="text-center">
  <?php require 'inc/navigation.php'; ?>
     <div class="container">
-        <div class="container">
             <div class="jumbotron">
-                <div class="container">
+                <div>
                     <h1 class="display-4">Mise à jour de loisir</h1>
                     <p class="lead">Mise à jour de mon CV.</p>
                 </div>
@@ -46,16 +44,21 @@
 
             <!-- mise à jour formulaire -->
             <div class="row">
-                <form action="modif_loisir.php" method="post">
-                    <div class="form-group">
-                        <label for="loisir">Loisir</label>
-                        <input type="text" name="loisir" class="form-control" value="<?php echo $ligne_loisir['loisir']; ?>" required>
-                    </div>
-                    <div class="form-group">
+                <div class="col-md-6 offset-md-3">
+                    <form action="modif_loisir.php" method="post">
+
                         <input type="hidden" name="id_loisir" class="form-control" value="<?php echo $ligne_loisir['id_loisir']; ?>">
-                        <button type="submit">MAJ</button>
-                    </div>
-                </form>
+                        <div class="form-group">
+                            <label for="loisir">Loisir</label>
+                            <input type="text" name="loisir" class="form-control" value="<?php echo $ligne_loisir['loisir']; ?>" required>
+                        </div>
+                        <div class="form-group">
+                            
+                            <button type="submit" class="form-control btn-primary">MAJ</button>
+                        </div>
+
+                    </form>
+                </div>    
             </div>
             
 
