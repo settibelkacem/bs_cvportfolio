@@ -11,6 +11,7 @@
         $sql = $pdoCV->query(" SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur' ");
         $ligne_utilisateur = $sql->fetch();
     ?>
+    
     <title>Admin :  <?php echo $ligne_utilisateur['pseudo']; ?></title>
 	<?php require 'inc/head.php'; ?>
 </head>
