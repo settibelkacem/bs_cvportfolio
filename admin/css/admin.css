@@ -17,11 +17,14 @@ body{
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
 >>>>>>> 146dff08d6823643ec49f11ca5285ff105753714
 =======
+=======
+>>>>>>> parent of 820537c... les fichiers d'admin
 
 
  /* The side navigation menu */
@@ -83,6 +86,9 @@ body{
 
 /* ---------------side */
 
+<<<<<<< HEAD
+>>>>>>> parent of 820537c... les fichiers d'admin
+=======
 >>>>>>> parent of 820537c... les fichiers d'admin
  /* Dropdown Button */
 .dropbtn {
@@ -124,6 +130,7 @@ body{
 .dropdown:hover .dropdown-content {display: block;}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
+<<<<<<< HEAD
 <<<<<<< HEAD
 .dropdown:hover .dropbtn {background-color: #3e8e41;} 
 
@@ -169,6 +176,9 @@ body{
   opacity: 1;
 }
 >>>>>>> 146dff08d6823643ec49f11ca5285ff105753714
+=======
+.dropdown:hover .dropbtn {background-color: #3e8e41;} 
+>>>>>>> parent of 820537c... les fichiers d'admin
 =======
 .dropdown:hover .dropbtn {background-color: #3e8e41;} 
 >>>>>>> parent of 820537c... les fichiers d'admin
