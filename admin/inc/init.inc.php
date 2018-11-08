@@ -19,11 +19,12 @@ $pdoCV->exec("SET NAMES utf8");
 
 
 //- définir le chemin absolu du site (comme dans wordpress) :
-define('RACINE_SITE', '/setti_portfolio/admin');  // cette constante servira à créer les chemins absolus utilisés dans haut.inc.php car ce fichier sera inclus dans des scripts qui se situent dans des dossiers différents du site. On ne peut donc pas faire de chemin relatif dans ce fichier.
+define('RACINE_SITE', '/setti_portfolio/');  // cette constante servira à créer les chemins absolus utilisés dans haut.inc.php car ce fichier sera inclus dans des scripts qui se situent dans des dossiers différents du site. On ne peut donc pas faire de chemin relatif dans ce fichier.
 
 // Variables d'affichage :
 $contenu = '';
-
+$contenu_gauche = '';
+$contenu_droite = '';
 
 // inclusion du fichier fonction.inc.php :
 require_once('fonctions.inc.php');

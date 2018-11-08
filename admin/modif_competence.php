@@ -1,7 +1,7 @@
 <?php require 'inc/init.inc.php';
     require 'inc/acces_admin.php'; 
 
-//gestion mise à jour d'une competence
+//gestion mise à jour d'une information
 if(isset($_POST['competence'])){
 
     $competence = addslashes($_POST['competence']);
@@ -39,17 +39,16 @@ $ligne_competence = $sql->fetch();//va chercher ! va !
         <?php require 'inc/navigation.php'; ?>
         <div class="container">
             <div class="jumbotron">
-                <div>
+                <div class="container">
                     <h1 class="display-4">Mise à jour d'une compétence</h1>
                     <p class="lead">Mise à jour de mon CV.</p>
                 </div>
             </div>
            
-               <!-- mise à jour formulaire -->
+            <!-- mise à jour formulaire -->
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <form action="modif_competence.php" method="post">
-                    
                         <input type="hidden" name="id_competence" value="<?php echo $ligne_competence['id_competence']; ?>">
                         <div class="form-group">
                                 <label for="competence">Competence</label>

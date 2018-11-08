@@ -1,5 +1,5 @@
     <?php 
-    require 'inc/init.inc.php';
+    require 'admin/inc/init.inc.php';
 
     session_start();// à mettre dans toutes les pages de l'admin 
 //traitement pour la connexion à l'admin 
@@ -23,7 +23,7 @@
         $_SESSION['nom'] = $ligne_utilisateur['nom'];
         $_SESSION['mdp'] = $ligne_utilisateur['mdp'];
         //echo $ligne_utilisateur['nom'];
-        header('location:profil.php');
+        header('location:admin/index.php');
       }
     }
     ?>
@@ -35,7 +35,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
   
-     <?php require 'inc/head.php'; ?>
+     <?php require 'admin/inc/head.php'; ?>
     
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
