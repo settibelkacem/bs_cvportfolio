@@ -24,7 +24,7 @@
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h1 class="display-4"><i class="fas fa-user-circle"></i> Profil :  <?php echo $ligne_utilisateur['pseudo']; ?></h1>
-                <p class="lead">Gestion des données de mon CV.</p>
+                <p class="lead">Gestion des donnÃ©es de mon CV.</p>
             </div>
         </div>
       <div class="container ">
